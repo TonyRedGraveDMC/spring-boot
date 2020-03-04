@@ -12,11 +12,6 @@ public class TopicService {
     @Autowired
     private TopicRepository topicRepository;
 
-    private List<Topic> topics = new ArrayList<>(Arrays.asList(
-            new Topic("spring", "Spring Framework", "Spring Framework Description"),
-            new Topic("java", "Core Java", "Core Java Description"),
-            new Topic("javascript", "JavaScript", "JavaScript Description")));
-
     public List<Topic> getAllTopics() {
         List<Topic> topics = new ArrayList<>();
         topicRepository.findAll().forEach(topics::add);
@@ -33,5 +28,14 @@ public class TopicService {
 
     public void deleteTopic(String id) {
         topicRepository.deleteById(id);
+    }
+
+    public void populate() {
+        List<Topic> topics = new ArrayList<>(Arrays.asList(
+                new Topic("spring", "Spring Framework", "Spring Framework Description"),
+                new Topic("java", "Core Java", "Core Java Description"),
+                new Topic("javascript", "JavaScript", "JavaScript Description")));
+
+        topics.forEach(this::addTopic);
     }
 }

@@ -29,4 +29,9 @@ public class TopicController {
     public void deleteTopic(@PathVariable String id) {
         topicService.deleteTopic(id);
     }
+
+    @RequestMapping("/populate")
+    public void populateTopics() {
+        topicService.populate();
+    }
 }
