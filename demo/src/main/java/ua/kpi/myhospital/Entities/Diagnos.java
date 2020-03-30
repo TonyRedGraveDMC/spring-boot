@@ -7,18 +7,17 @@ import javax.persistence.Id;
 public class Diagnos {
   @Id
   private Integer idDiagnos;
-  private long  idPrescription;
+  private int  idPrescription;
   private String currentDiagnos;
   private String healthStatus;
-  private String kind;
+
 
   public Diagnos(){}
 
-  public Diagnos( Integer idDiagnos, long idPrescription,String kind, String currentDiagnos, String healthStatus){
+  public Diagnos( Integer idDiagnos, int idPrescription, String currentDiagnos, String healthStatus){
     this.idDiagnos = idDiagnos;
     this.idPrescription = idPrescription;
     this.currentDiagnos = currentDiagnos;
-    this.kind = kind;
     this.healthStatus = healthStatus;
   }
 
@@ -29,10 +28,10 @@ public class Diagnos {
   public void setIdDiagnos(Integer idDiagnos) {
     this.idDiagnos = idDiagnos;
   }
-  public long getIdPrescription() {
+  public int getIdPrescription() {
     return idPrescription;
   }
-  public void setIdPrescription(Integer idPrescription) {
+  public void setIdPrescription(int idPrescription) {
     this.idPrescription = idPrescription;
   }
   public String getCurrentDiagnos() {
@@ -47,12 +46,7 @@ public class Diagnos {
   public void setHealthStatus(String healthStatus) {
     this.healthStatus = healthStatus;
   }
-  public String getKind() {
-    return kind;
-  }
-  public void setKind(String kind) {
-    this.kind = kind;
-  }
+
 
 
 }

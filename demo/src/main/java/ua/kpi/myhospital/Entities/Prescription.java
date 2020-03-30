@@ -6,36 +6,21 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "prescription",schema = "myhospital")
+
 public class Prescription {
   @Id
   private Integer idPrescription;
   private int idDoc;
   private int idPatient;
   private int idExecutor;
-
-
-//  @ManyToOne(fetch = FetchType.LAZY)
-//  @JoinColumns({
-//          @JoinColumn(name ="id_doc", referencedColumnName = "id_user"),
-//          @JoinColumn(name="id_executor", referencedColumnName = "id_user"),
-//          @JoinColumn(name="id_patient", referencedColumnName = "id_user")
-//  })
-//  @ManyToOne(fetch = FetchType.LAZY)
-//  @JoinColumns({
-//          @JoinColumn(name = "id_doc", referencedColumnName = "id_user"),
-//          @JoinColumn(name = "id_executor", referencedColumnName = "id_user"),
-//          @JoinColumn(name = "id_patient", referencedColumnName = "id_user")
-//  })
-//  private User user_prescription;
-
-
+  private String kind;
   public Prescription() {}
 
-  public Prescription(Integer idPrescription, int idDoc, int idPatient, int idExecutor) {
+  public Prescription(Integer idPrescription,String kind, int idDoc, int idPatient, int idExecutor) {
     this.idPrescription = idPrescription;
     this.idDoc = idDoc;
     this.idPatient = idPatient;
+    this.kind = kind;
     this.idExecutor = idExecutor;
   }
 
@@ -74,4 +59,10 @@ public class Prescription {
     this.idExecutor = idExecutor;
   }
 
+  public String getKind() {
+    return kind;
+  }
+  public void setKind(String kind) {
+    this.kind = kind;
+  }
 }
