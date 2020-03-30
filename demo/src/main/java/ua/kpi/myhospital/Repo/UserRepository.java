@@ -1,6 +1,7 @@
-package ua.kpi.myhospital.user;
+package ua.kpi.myhospital.Repo;
 
 import org.springframework.data.repository.CrudRepository;
+import ua.kpi.myhospital.Entities.User;
 
 import java.util.List;
 

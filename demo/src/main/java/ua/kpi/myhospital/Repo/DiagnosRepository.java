@@ -1,4 +1,8 @@
 package ua.kpi.myhospital.Repo;
 
-public interface DiagnosRepository {
+import org.springframework.data.repository.CrudRepository;
+import ua.kpi.myhospital.Entities.Diagnos;
+
+public interface DiagnosRepository extends CrudRepository<Diagnos, Integer> {
+
 }

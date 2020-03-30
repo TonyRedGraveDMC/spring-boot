@@ -1,14 +1,13 @@
-package ua.kpi.myhospital.user;
+package ua.kpi.myhospital.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import ua.kpi.myhospital.Entities.User;
+import ua.kpi.myhospital.Service.UserService;
 
-import java.util.ArrayList;
 import java.util.List;
 @RestController
-public class
-UserController {
+public class UserController {
     @Autowired
     private UserService userService;
 
@@ -29,12 +28,12 @@ UserController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/users" )
     public void addUser(@RequestBody User user){
-        userService.addUser(user);
+        userService.saveUser(user);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/user/{idUser}")
-    public void upppdateUser(@RequestBody User user, @PathVariable Integer idUser){
-        userService.uppdateUser(user, idUser);
+    @RequestMapping(method = RequestMethod.PUT, value = "/users/{id}")
+    public void updateUser(@RequestBody User user, @PathVariable Integer id){
+        userService.updateUser(user, id);
     }
 
     @RequestMapping(method = RequestMethod.DELETE,value = "/users/{idUser}")

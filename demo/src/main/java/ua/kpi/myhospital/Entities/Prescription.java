@@ -1,30 +1,45 @@
 package ua.kpi.myhospital.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
 
 @Entity
+@Data
+@Table(name = "prescription",schema = "myhospital")
 public class Prescription {
   @Id
   private Integer idPrescription;
-  private Integer idDoc;
-  private Integer idPatient;
-  private String kind;
-  private Integer idExecutor;
-  private String finalDiagnos;
+  private int idDoc;
+  private int idPatient;
+  private int idExecutor;
+
+
+//  @ManyToOne(fetch = FetchType.LAZY)
+//  @JoinColumns({
+//          @JoinColumn(name ="id_doc", referencedColumnName = "id_user"),
+//          @JoinColumn(name="id_executor", referencedColumnName = "id_user"),
+//          @JoinColumn(name="id_patient", referencedColumnName = "id_user")
+//  })
+//  @ManyToOne(fetch = FetchType.LAZY)
+//  @JoinColumns({
+//          @JoinColumn(name = "id_doc", referencedColumnName = "id_user"),
+//          @JoinColumn(name = "id_executor", referencedColumnName = "id_user"),
+//          @JoinColumn(name = "id_patient", referencedColumnName = "id_user")
+//  })
+//  private User user_prescription;
 
 
   public Prescription() {}
 
-  public Prescription(Integer idPrescription, Integer idDoc, Integer idPatient, String kind, Integer idExecutor) {
+  public Prescription(Integer idPrescription, int idDoc, int idPatient, int idExecutor) {
     this.idPrescription = idPrescription;
     this.idDoc = idDoc;
     this.idPatient = idPatient;
-    this.kind = kind;
     this.idExecutor = idExecutor;
   }
 
-  public long getIdPrescription() {
+  public Integer getIdPrescription() {
     return idPrescription;
   }
 
@@ -33,38 +48,29 @@ public class Prescription {
   }
 
 
-  public long getIdDoc() {
+  public int getIdDoc() {
     return idDoc;
   }
 
-  public void setIdDoc(Integer idDoc) {
+  public void setIdDoc(int idDoc) {
     this.idDoc = idDoc;
   }
 
 
-  public long getIdPatient() {
+  public int getIdPatient() {
     return idPatient;
   }
 
-  public void setIdPatient(Integer idPatient) {
+  public void setIdPatient(int idPatient) {
     this.idPatient = idPatient;
   }
 
 
-  public String getKind() {
-    return kind;
-  }
-
-  public void setKind(String kind) {
-    this.kind = kind;
-  }
-
-
-  public long getIdExecutor() {
+  public int getIdExecutor() {
     return idExecutor;
   }
 
-  public void setIdExecutor(Integer idExecutor) {
+  public void setIdExecutor(int idExecutor) {
     this.idExecutor = idExecutor;
   }
 

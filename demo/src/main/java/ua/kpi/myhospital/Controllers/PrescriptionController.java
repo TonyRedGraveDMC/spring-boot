@@ -1,8 +1,9 @@
-package ua.kpi.myhospital.prescription;
+package ua.kpi.myhospital.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ua.kpi.myhospital.Repo.Prescription;
+import ua.kpi.myhospital.Entities.Prescription;
+import ua.kpi.myhospital.Service.PrescriptionService;
 
 import java.util.List;
 
@@ -22,9 +23,9 @@ public class PrescriptionController {
         return prescriptionService.getPrescription(idPrescription);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/prescription")
+    @RequestMapping(method = RequestMethod.POST, value = "/prescription")
     public void addPrescription(@RequestBody Prescription prescription) {
-        prescriptionService.addPrescription(prescription);
+        prescriptionService.savePrescription(prescription);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/prescription/{idPrescription}")
@@ -33,7 +34,7 @@ public class PrescriptionController {
     }
     @RequestMapping(method = RequestMethod.PUT, value = "/prescription/{idPrescription}")
     public void uppdatePrescription(@RequestBody Prescription prescription, @PathVariable Integer idPrescription){
-        prescriptionService.deletePrescription(idPrescription);
+        prescriptionService.updatePrescription(prescription, idPrescription);
     }
 
 

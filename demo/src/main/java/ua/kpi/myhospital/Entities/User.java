@@ -1,16 +1,22 @@
 package ua.kpi.myhospital.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.naming.Name;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
+@Data
+//@Table(name = "user",schema = "myhospital")
 public class User {
   @Id
   private Integer idUser;
   private String name;
   private String surName;
   private String role;
+
 
   public User() {
   }
