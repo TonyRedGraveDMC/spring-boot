@@ -1,9 +1,12 @@
 package ua.kpi.myhospital.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.naming.Name;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 
@@ -21,15 +24,16 @@ public class User {
   public User() {
   }
 
-  public User(Integer id_user, String name, String surName, String role){
+  public User(Integer id_user, String name, String surName, String role) {
     this.id_user = id_user;
     this.name = name;
     this.surName = surName;
     this.role = role;
   }
 
-//  @OneToMany(mappedBy = "user_prescription" )
-//  private List<Prescription> prescriptions;
+  @ManyToMany(mappedBy = "user_prescription")
+  @JsonIgnore
+  private List<Prescription> prescriptions;
 
 
   public Integer getId_user() {

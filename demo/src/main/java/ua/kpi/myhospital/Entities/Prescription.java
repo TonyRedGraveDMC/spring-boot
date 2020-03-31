@@ -2,7 +2,6 @@ package ua.kpi.myhospital.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.springframework.context.annotation.EnableMBeanExport;
 
 import javax.persistence.*;
 import java.util.List;
@@ -30,13 +29,14 @@ public class Prescription {
   @JsonIgnore
   private List<Diagnos> diagnosList;
 
-//  @ManyToOne
-//  @JoinColumns({
-//          @JoinColumn(name = "id_doc", referencedColumnName = "id_user"),
-//          @JoinColumn(name = "id_executor", referencedColumnName = "id_user"),
-//          @JoinColumn(name = "id_patient", referencedColumnName = "id_user")
-//  })
-//  private User user_prescription;
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JsonIgnore
+  @JoinColumns({
+          @JoinColumn(name = "id_doc", referencedColumnName = "id_user", insertable = false, updatable = false),
+          @JoinColumn(name = "id_executor", referencedColumnName = "id_user", insertable = false, updatable = false),
+          @JoinColumn(name = "id_patient", referencedColumnName = "id_user", insertable = false, updatable = false)
+  })
+  private List<User> user_prescription;
 
 
   public Integer getId_prescription() {
