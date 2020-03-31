@@ -9,10 +9,10 @@ import java.util.List;
 
 @Entity
 @Data
-//@Table(name = "user",schema = "myhospital")
+@Table(name = "user",schema = "myhospital")
 public class User {
   @Id
-  private Integer idUser;
+  private Integer id_user;
   private String name;
   private String surName;
   private String role;
@@ -21,20 +21,24 @@ public class User {
   public User() {
   }
 
-  public User(Integer idUser, String login, String password, String name, String surName, String role){
-    this.idUser = idUser;
+  public User(Integer id_user, String name, String surName, String role){
+    this.id_user = id_user;
     this.name = name;
     this.surName = surName;
     this.role = role;
   }
-  public long getIduser() {
-    return idUser;
+
+//  @OneToMany(mappedBy = "user_prescription" )
+//  private List<Prescription> prescriptions;
+
+
+  public Integer getId_user() {
+    return id_user;
   }
 
-  public void setIduser(Integer idUser) {
-    this.idUser = idUser;
+  public void setId_user(Integer id_user) {
+    this.id_user = id_user;
   }
-
 
   public String getName() {
     return name;
@@ -44,7 +48,6 @@ public class User {
     this.name = name;
   }
 
-
   public String getSurName() {
     return surName;
   }
@@ -53,7 +56,6 @@ public class User {
     this.surName = surName;
   }
 
-
   public String getRole() {
     return role;
   }
@@ -61,5 +63,4 @@ public class User {
   public void setRole(String role) {
     this.role = role;
   }
-
 }
