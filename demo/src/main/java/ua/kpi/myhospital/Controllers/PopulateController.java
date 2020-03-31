@@ -3,6 +3,8 @@ package ua.kpi.myhospital.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ua.kpi.myhospital.Entities.Diagnos;
+import ua.kpi.myhospital.Entities.Prescription;
 import ua.kpi.myhospital.Entities.User;
 import ua.kpi.myhospital.Service.DiagnosService;
 import ua.kpi.myhospital.Service.PrescriptionService;
@@ -27,6 +29,14 @@ public class PopulateController {
                 new User(3, "Vika", "Surname", "nurse"));
         users.forEach(user -> userService.saveUser(user));
 
-    }
 
+        List<Prescription> prescriptions = List.of(new Prescription(1, "operation ", 1, 2, 1),
+                new Prescription(2, "medcine", 1, 2, 1));
+          prescriptions.forEach((prescription -> prescriptionService.savePrescription(prescription)));
+
+          List<Diagnos> diagnosList = List.of(new Diagnos(1, 1,"very sick", "still alive"),
+                  new Diagnos(2, 2, "quite healthy", "alive"));
+          diagnosList.forEach(diagnos -> diagnosService.saveDiagnos(diagnos));
+
+    }
 }
